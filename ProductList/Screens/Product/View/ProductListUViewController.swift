@@ -32,7 +32,7 @@ extension ProductListUViewController {
             guard let self = self else {return}
             switch event {
             case .Loading:break
-                print("Loading...")
+                print("Loading..")
             case .stopLoading:break
                 print("Loading stopped")             
             case .dataLoaded:
