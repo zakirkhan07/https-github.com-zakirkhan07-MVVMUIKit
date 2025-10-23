@@ -1,0 +1,36 @@
+//
+//  ProductViewModel.swift
+//  ProductList
+//
+//  Created by Zakir Khan on 23/09/2025.
+//
+
+import Foundation
+ 
+final class ProductViewModel {
+    var products: [Product] = []
+    var eventHanler: ((_ event: Event) -> Void)?
+    func fetchProducts(){
+        self.eventHanler?(.Loading)
+        APIManager.shared.fetchProduct{ response in
+            self.eventHanler?(.stopLoading)
+            switch response {
+            case .success(let productData):
+                self.products = productData
+                self.eventHanler?(.dataLoaded)
+            case .failure(let error):
+                self.eventHanler?(.error(error))
+            }
+        }
+    }
+
+}
+extension ProductViewModel {
+    enum Event {
+        case Loading
+        case stopLoading
+        case dataLoaded
+        case error(Error)
+        
+    }
+}
