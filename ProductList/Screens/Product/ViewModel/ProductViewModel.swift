@@ -10,9 +10,14 @@ import Foundation
 final class ProductViewModel {
     var products: [Product] = []
     var eventHanler: ((_ event: Event) -> Void)?
+    
     func fetchProducts(){
         self.eventHanler?(.Loading)
-        APIManager.shared.fetchProduct{ response in
+        APIManager.shared.request(
+            modelType: [Product].self,
+            type: EndPointsItems.products
+        ){
+            response in
             self.eventHanler?(.stopLoading)
             switch response {
             case .success(let productData):
@@ -21,8 +26,22 @@ final class ProductViewModel {
             case .failure(let error):
                 self.eventHanler?(.error(error))
             }
-        }
+            }
+        
     }
+//    func fetchProducts(){
+//        self.eventHanler?(.Loading)
+//        APIManager.shared.fetchProduct{ response in
+//            self.eventHanler?(.stopLoading)
+//            switch response {
+//            case .success(let productData):
+//                self.products = productData
+//                self.eventHanler?(.dataLoaded)
+//            case .failure(let error):
+//                self.eventHanler?(.error(error))
+//            }
+//        }
+//    }
 
 }
 extension ProductViewModel {
