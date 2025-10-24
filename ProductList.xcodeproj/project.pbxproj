@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		FC6833352EAA70840016578D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = FC6833342EAA70840016578D /* Kingfisher */; };
 		FC6833372EAA70FB0016578D /* UIImageView + Extenison.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6833362EAA70FB0016578D /* UIImageView + Extenison.swift */; };
+		FC6833442EAAD0370016578D /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6833432EAAD0370016578D /* EndPointType.swift */; };
 		FC7132D82E7FAC95009EAA56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC7132CF2E7FAC95009EAA56 /* Assets.xcassets */; };
 		FC7132DA2E7FAC95009EAA56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC7132D22E7FAC95009EAA56 /* LaunchScreen.storyboard */; };
 		FC7132DB2E7FAC95009EAA56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC7132D42E7FAC95009EAA56 /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		FC6833362EAA70FB0016578D /* UIImageView + Extenison.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extenison.swift"; sourceTree = "<group>"; };
+		FC6833432EAAD0370016578D /* EndPointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = "<group>"; };
 		FC7132B62E7FAC71009EAA56 /* ProductList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProductList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC7132CE2E7FAC95009EAA56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC7132CF2E7FAC95009EAA56 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -61,6 +63,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FC6833422EAAD00A0016578D /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				FC6833432EAAD0370016578D /* EndPointType.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		FC7132AD2E7FAC71009EAA56 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +93,7 @@
 				FC7132E42E7FACCF009EAA56 /* Application */,
 				FC7132E12E7FACC3009EAA56 /* Constant */,
 				FC7132E32E7FACCB009EAA56 /* Extension */,
+				FC6833422EAAD00A0016578D /* Utility */,
 				FC7132E02E7FACBA009EAA56 /* Helpers */,
 				FC7132DF2E7FAC9E009EAA56 /* Screens */,
 				FC7132E52E7FAEDE009EAA56 /* Storybaord */,
@@ -248,6 +259,7 @@
 				FC6833372EAA70FB0016578D /* UIImageView + Extenison.swift in Sources */,
 				FC7132F52E7FFEA1009EAA56 /* Constant.swift in Sources */,
 				FC7132DD2E7FAC95009EAA56 /* SceneDelegate.swift in Sources */,
+				FC6833442EAAD0370016578D /* EndPointType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

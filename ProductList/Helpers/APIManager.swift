@@ -16,14 +16,19 @@ enum ProductError: Error {
     
 }
 
- typealias Handler = (Result<[Product], ProductError>) -> Void
+ typealias Handler<T> = (Result<T, ProductError>) -> Void
 
 final class APIManager {
     static  let  shared = APIManager()
     private init () {}
     
-    func fetchProduct(completion: @escaping Handler ) {
-        guard let url = URL(string: Constant.API.productUrl) else {
+    
+    func request<T: Decodable>(
+        modelType: T.Type,
+        type: EndPointType,
+        completion: @escaping Handler<T>
+    ){//URL(string: Constant.API.productUrl)
+        guard let url = type.url else {
             
             return
             
@@ -41,7 +46,7 @@ final class APIManager {
                 return
             }
             do {
-                let productData = try JSONDecoder().decode([Product].self, from: data)
+                let productData = try JSONDecoder().decode(modelType, from: data)
                 completion(.success(productData))
             }
             catch {
@@ -49,9 +54,8 @@ final class APIManager {
             }
             
        }.resume()
-        
-
     }
+   
     
    
     
