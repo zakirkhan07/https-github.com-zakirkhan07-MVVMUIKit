@@ -15,7 +15,11 @@ class ProductListUViewController: UIViewController {
      configuation()
     
 }
-
+    @IBAction func addProductButtonTap(_ sender: Any) {
+        let product = AddProduct(title: "Iphone")
+        viewModel.addProduct(parameter: product)
+    }
+    
 }
 
 extension ProductListUViewController {
@@ -43,6 +47,8 @@ extension ProductListUViewController {
                 }
             case .error(let error):
                 print("Error: \(error)")
+            case .newProductAdded(product: let newProduct):
+                print(newProduct)
             }
         }
     }

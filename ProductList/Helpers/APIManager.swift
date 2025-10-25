@@ -23,7 +23,7 @@ final class APIManager {
     private init () {}
     
     
-    func request<T: Decodable>(
+    func request<T: Codable>(
         modelType: T.Type,
         type: EndPointType,
         completion: @escaping Handler<T>
@@ -33,7 +33,16 @@ final class APIManager {
             return
             
         }
-        URLSession.shared.dataTask(with: url)  {data, response, error in
+        var request = URLRequest(url: url)
+        request.httpMethod = type.method.rawValue
+        
+        if let parameter = type.body {
+            request.httpBody = try? JSONEncoder().encode(parameter)
+        }
+        request.allHTTPHeaderFields = type.headers
+      
+        
+        URLSession.shared.dataTask(with: request)  {data, response, error in
             
             guard let data = data else {
                 completion(.failure(.invalidData))
@@ -55,8 +64,15 @@ final class APIManager {
             
        }.resume()
     }
-   
+   // its returning when ever i need it will accessed it without storing it in memory
+    static var commanHeadeer: [String: String] {
+        return ["content-type": "application/json"]
+    }
     
    
     
 }
+//model to datA - ENCODABLE
+//DATA TO MODEL , DECODABLE
+
+//FOR BOTH -> CODABLE ITS A TYPE ALLIAS
